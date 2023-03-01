@@ -32,6 +32,9 @@ class MainActivity : ComponentActivity() {
 
             Crossfade(targetState = state.isSignedIn) { isSignedIn ->
                 if(isSignedIn) {
+                    CharacterHelper.updateName("Sondre");
+                    CharacterHelper.moveTo(100,100);
+                    CharacterHelper.updateColor("red");
                     MainScreen()
                 } else {
                     Box(

@@ -95,7 +95,7 @@ object CharacterHelper {
                         "x" to (0..16).random(),
                         "y" to (0..16).random(),
                         "coins" to 0,
-                        "color" to "blue",
+                        "color" to "red",
                         "direction" to "left",
                         "updatedAt" to FieldValue.serverTimestamp()
                     )
@@ -114,6 +114,14 @@ object CharacterHelper {
         ).addOnFailureListener {
             Log.e("hackaton", "failed to update name", it)
         }
+    fun updateColor(colour: String) =
+        playerRef.update(
+            mapOf("color" to colour)
+        ).addOnFailureListener {
+            Log.e("hackaton", "failed to update name", it)
+        }
+
+
 
     fun moveTo(x: Int, y: Int) {
         playerRef.update(

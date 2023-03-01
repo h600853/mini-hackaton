@@ -98,6 +98,7 @@ fun MainScreen() {
             ) {
                 // Sample button (can be removed):
                 BasicButton(
+                    modifier = Modifier.size(100.dp, 100.dp),
                     text = "This is a button",
                     onClick = {
                         // This is run on click.
@@ -105,8 +106,38 @@ fun MainScreen() {
                     }
                 )
                 // TODO: Make your UI here!
-            }
 
+                BasicButton(modifier = Modifier.size(100.dp, 100.dp), text = "UP", onClick = {
+                    CharacterHelper.moveCharacter(CharacterHelper.Direction.UP);
+                })
+                BasicButton(modifier = Modifier.size(100.dp, 100.dp),text = "DOWN", onClick = {
+                    CharacterHelper.moveCharacter(CharacterHelper.Direction.DOWN);
+                })
+
+
+            }
+            Column(
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .fillMaxWidth(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.End,
+            ) {
+                BasicButton(modifier = Modifier.size(100.dp, 100.dp), text = "->", onClick = {
+                    CharacterHelper.moveCharacter(CharacterHelper.Direction.RIGHT);
+                })
+            }
+            Column(
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .fillMaxWidth(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start,
+            ) {
+                BasicButton(modifier = Modifier.size(100.dp, 100.dp),text = "<-", onClick = {
+                    CharacterHelper.moveCharacter(CharacterHelper.Direction.LEFT);
+                })
+            }
 
 
             AnimatedVisibility(
